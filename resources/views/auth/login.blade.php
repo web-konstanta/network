@@ -3,14 +3,21 @@
 @section('title', 'Login page')
 
 @section('content')
-    <form action="#" class="form">
+    <form action="{{ route('login') }}" method="post" class="form">
+        @csrf
         <div class="form__section">
             <h1 class="form__logo">Social network</h1>
             <div class="form__block">
-                <input class="form__input-login" type="text" placeholder="User name or email">
+                <input class="form__input-login" type="email" name="email" placeholder="User name or email">
+                @error('email')
+                <p style="color: #f00f00">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form__block">
-                <input class="form__input-login" type="text" placeholder="Password">
+                <input class="form__input-login" type="password" name="password" placeholder="Password">
+                @error('password')
+                <p style="color: #f00f00">{{ $message }}</p>
+                @enderror
             </div>
             <div class="form__block">
                 <button class="form__button" type="submit">Login</button>
