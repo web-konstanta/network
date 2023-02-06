@@ -1,0 +1,102 @@
+body {
+    background-color: #000000;
+    font-family: "DejaVu Sans Condensed", sans-serif;
+}
+.wrapper {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.form__logo {
+    color: #ffffff;
+    font-size: 50px;
+    font-family: 'Indie Flower', cursive;
+    margin-bottom: -10px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form__or {
+    color: #ffffff;
+    text-align: center;
+    margin-top: 30px;
+}
+.form__link {
+    display: block;
+    text-decoration: none;
+    font-size: 21px;
+    color: blue;
+    text-align: center;
+}
+.form__register{
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    color: blue;
+    text-align: center;
+    position: relative;
+    top: 18%;
+}
+.form__span {
+    color: #ffffff;
+    opacity: 0.5;
+}
+.form__label {
+    color: #ffffff;
+    font-size: 18px;
+    text-align: center;
+}
+.form__block-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form__input {
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    font-size: 16px;
+}
+.form__input-login {
+    padding: 13px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1b1b1b;
+    color: #ffffff;
+    font-size: 16px;
+    margin-top: 25px;
+}
+.form__button {
+    background-color: #0069c0;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 280px;
+    font-size: 16px;
+    margin-top: 25px;
+}
+@media (max-width: 1400px) {
+    .form__button {
+        width: 275px;
+    }
+}
+@media (max-width: 1300px) {
+    .form__button {
+        width: 265px;
+    }
+}
+@media (max-width: 1100px) {
+    .form__button {
+        width: 275px;
+    }
+}
+@media (max-width: 1000px) {
+    .form__button {
+        width: 270px;
+    }
+}
