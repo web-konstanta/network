@@ -1,0 +1,38 @@
+body {
+    background-color: #000000;
+    color: #ffffff;
+    font-family: "DejaVu Sans Condensed", sans-serif;
+}
+ul, ol {
+    list-style-type: none;
+}
+.wrapper {
+    margin-top: 5%;
+}
+.user__settings {
+    display: flex;
+}
+.user__settings>li {
+    margin-right: 20px;
+}
+li:first-child {
+    font-size: 18px;
+}
+.user__settings-avatar>img {
+    width: 150px;
+}
+.user__list {
+    display: flex;
+    justify-content: center;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+.user__avatar {
+    border-radius: 50%;
+}
+.user__info {
+    margin-top: 20px;
+}
+.user__info-login {
+    font-weight: 700;
+}
