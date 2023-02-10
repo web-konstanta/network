@@ -11,11 +11,10 @@
     <div class="wrapper">
         <nav class="user__list">
             <div class="user__settings-avatar">
-                <img class="user__avatar" src="{{  asset('img/avatar.jpg') }}" alt="Avatar icon">
+                <img class="user__avatar" src="{{ url('storage/' . Auth::user()->avatar) }}" alt="Avatar icon">
             </div>
             <section class="user__section">
                 <ul class="user__settings">
-                    <li>anakostiy_anti</li>
                     <li>
                         <button>Edit profile</button>
                     </li>
@@ -27,10 +26,10 @@
                     </li>
                 </ul>
                 <ul class="user__info">
-                    <li class="user__info-login">Konst@_nta</li>
-                    <li>Sports & recreation</li>
-                    <li>Kharkov, Ukraine 🇺🇦</li>
-                    <li>t.me/anakostiy_music</li>
+                    <li class="user__info-login">{{ Auth::user()->name }}</li>
+                    <li></li>
+                    <li>{{  Auth::user()->region  }}</li>
+                    <li></li>
                 </ul>
             </section>
         </nav>

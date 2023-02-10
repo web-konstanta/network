@@ -20,6 +20,7 @@ li:first-child {
 }
 .user__settings-avatar>img {
     width: 150px;
+    height: 150px;
 }
 .user__list {
     display: flex;
