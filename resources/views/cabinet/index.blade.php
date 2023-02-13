@@ -16,7 +16,9 @@
             <section class="user__section">
                 <ul class="user__settings">
                     <li>
-                        <button>Edit profile</button>
+                        <button>
+                            <a href="{{ route('cabinet.edit', Auth::user()->id) }}" class="user__edit">Edit profile</a>
+                        </button>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST" class="d-none">
@@ -27,9 +29,9 @@
                 </ul>
                 <ul class="user__info">
                     <li class="user__info-login">{{ Auth::user()->name }}</li>
-                    <li></li>
-                    <li>{{  Auth::user()->region  }}</li>
-                    <li></li>
+                    <li>{{ Auth::user()->region }}</li>
+                    <li>{{ Auth::user()->hobby->name }}</li>
+                    <li>{{ App\Models\User::getLink(Auth::user()->link) }}</li>
                 </ul>
             </section>
         </nav>

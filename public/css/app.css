@@ -40,6 +40,10 @@ body {
     position: relative;
     top: 18%;
 }
+.form__select {
+    width: 305px;
+    padding: 10px;
+}
 .form__span {
     color: #ffffff;
     opacity: 0.5;

@@ -9,6 +9,10 @@ ul, ol {
 .wrapper {
     margin-top: 5%;
 }
+.user__edit {
+    text-decoration: none;
+    color: #000000;
+}
 .user__settings {
     display: flex;
 }
