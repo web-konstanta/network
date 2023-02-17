@@ -31,7 +31,11 @@
                     <li class="user__info-login">{{ Auth::user()->name }}</li>
                     <li>{{ Auth::user()->region }}</li>
                     <li>{{ Auth::user()->hobby->name }}</li>
-                    <li>{{ App\Models\User::getLink(Auth::user()->link) }}</li>
+                    <li>
+                        <a href="{{ App\Models\User::getLink(Auth::user()->link) }}" class="user__link">
+                            {{ App\Models\User::getLink(Auth::user()->link) }}
+                        </a>
+                    </li>
                 </ul>
             </section>
         </nav>
