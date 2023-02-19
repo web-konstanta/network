@@ -13,8 +13,13 @@
             <div class="user__settings-avatar">
                 <img class="user__avatar" src="{{ url('storage/' . Auth::user()->avatar) }}" alt="Avatar icon">
             </div>
-            <section class="user__section">
+            <header class="user__section">
                 <ul class="user__settings">
+                    <li>
+                        <button>
+                            <a href="{{ route('posts.create') }}" class="user__edit">Add post</a>
+                        </button>
+                    </li>
                     <li>
                         <button>
                             <a href="{{ route('cabinet.edit', Auth::user()->id) }}" class="user__edit">Edit profile</a>
@@ -37,8 +42,17 @@
                         </a>
                     </li>
                 </ul>
-            </section>
+            </header>
         </nav>
+        <hr>
+        <h1 class="posts__title">Post</h1>
+        <main class="posts">
+            @foreach ($posts as $post)
+                <section class="posts__section">
+                    <img src="{{ url('storage/' . $post->image) }}" width="250" height="300">
+                </section>
+            @endforeach
+        </main>
     </div>
 </body>
 </html>
