@@ -6,7 +6,7 @@
     <form action="{{ route('login') }}" method="post" class="form">
         @csrf
         <div class="form__section">
-            <h1 class="form__logo">Social blog</h1>
+            <h1 class="form__logo">Social network</h1>
             <div class="form__block">
                 <input class="form__input-login" type="email" name="email" placeholder="User name or email">
                 @error('email')

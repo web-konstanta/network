@@ -2,6 +2,9 @@ body {
     background-color: #000000;
     font-family: "DejaVu Sans Condensed", sans-serif;
 }
+ul, ol {
+    list-style: none;
+}
 .wrapper {
     max-width: 1180px;
     margin: 0 auto;
@@ -9,7 +12,7 @@ body {
 .form__logo {
     color: #ffffff;
     text-align: center;
-    font-size: 60px;
+    font-size: 45px;
     font-family: 'Indie Flower', cursive;
     margin-bottom: -10px;
 }
@@ -85,6 +88,40 @@ body {
     width: 280px;
     font-size: 16px;
     margin-top: 25px;
+}
+.main__section {
+    display: flex;
+    width: 800px;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #ffffff;
+    padding: 50px 0;
+}
+.main__serction-image {
+    width: 500px;
+    margin-right: 25px;
+}
+.main__serction-tags {
+    font-size: 10px;
+    position: relative;
+    top: 0;
+    right: 40px;
+}
+.main__section-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.main__section-block {
+    display: flex;
+    align-items: center;
+}
+.main__section-text {
+    font-size: 12px;
+}
+.main__section-nick {
+    margin-right: 10px;
 }
 @media (max-width: 1400px) {
     .form__button {

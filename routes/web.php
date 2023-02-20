@@ -14,6 +14,7 @@ Route::group(['namespace' => 'Cabinet', 'prefix' => 'home', 'middleware' => ['au
     Route::group(['namespace' => 'Post', 'prefix' => 'posts'], function () {
         Route::get('/create', 'CreateController')->name('posts.create');
         Route::post('/', 'StoreController')->name('posts.store');
+        Route::get('/{post}', 'ShowController')->name('posts.show');
     });
 });
 

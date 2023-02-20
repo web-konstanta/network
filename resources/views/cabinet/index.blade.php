@@ -48,9 +48,11 @@
         <h1 class="posts__title">Post</h1>
         <main class="posts">
             @foreach ($posts as $post)
-                <section class="posts__section">
-                    <img src="{{ url('storage/' . $post->image) }}" width="250" height="300">
-                </section>
+                <a href="{{ route('posts.show', $post->id) }}">
+                    <section class="posts__section">
+                        <img src="{{ url('storage/' . $post->image) }}" width="250" height="300">
+                    </section>
+                </a>
             @endforeach
         </main>
     </div>
