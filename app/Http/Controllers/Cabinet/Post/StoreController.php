@@ -14,11 +14,14 @@ class StoreController extends Controller
     {
         $data = $request->validated();
         $data['image'] = Storage::disk('public')->put('image/', $data['image']);
-        Post::create([
+        $tags = $data['tags_id'];
+        unset($data['tags_id']);
+        $post = Post::create([
             'text' => $data['text'],
             'image' => $data['image'],
             'user_id' => Auth::user()->id
         ]);
+        $post->tags()->attach($tags);
         return redirect()->route('cabinet.index');
     }
 }
