@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add new post')
+@section('title', 'Post view')
 
 @section('content')
     <main class="main__section">
@@ -9,7 +9,9 @@
             <div class="main__section-block">
                 <img src="{{ url('storage/' . Auth::user()->avatar) }}" class="main__section-avatar">
                 <p class="main__section-nick">{{ Auth::user()->name }}</p>
-                <button>Edit post</button>
+                <button>
+                    <a href="{{ route('posts.edit', $post->id) }}">Edit post</a>
+                </button>
             </div>
             <hr>
             <div class="main__section-block">
