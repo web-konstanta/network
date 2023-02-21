@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -30,5 +31,13 @@ class PostService
         unset($data['tags_id']);
         $post->update($data);
         $post->tags()->sync($tags);
+    }
+
+    public function delete($post)
+    {
+        DB::table('post_tag')
+            ->where('post_id', $post->id)
+            ->delete();
+        $post->delete();
     }
 }

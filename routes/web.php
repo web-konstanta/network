@@ -17,6 +17,7 @@ Route::group(['namespace' => 'Cabinet', 'prefix' => 'home', 'middleware' => ['au
         Route::get('/{post}', 'ShowController')->name('posts.show');
         Route::get('/{post}/edit', 'EditController')->name('posts.edit');
         Route::put('/{post}/update', 'UpdateController')->name('posts.update');
+        Route::delete('/{post}/delete', 'DestroyController')->name('posts.destroy');
     });
 });
 

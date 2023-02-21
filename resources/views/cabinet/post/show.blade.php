@@ -10,8 +10,13 @@
                 <img src="{{ url('storage/' . Auth::user()->avatar) }}" class="main__section-avatar">
                 <p class="main__section-nick">{{ Auth::user()->name }}</p>
                 <button>
-                    <a href="{{ route('posts.edit', $post->id) }}">Edit post</a>
+                    <a href="{{ route('posts.edit', $post->id) }}">Edit</a>
                 </button>
+                <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+                    @csrf
+                    @method('delete')
+                    <button>Delete</button>
+                </form>
             </div>
             <hr>
             <div class="main__section-block">
