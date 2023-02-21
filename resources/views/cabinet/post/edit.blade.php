@@ -20,7 +20,11 @@
                 <h4 class="form__label">Select tags</h4>
                 <select multiple class="form__select" name="tags_id[]">
                     @foreach ($tags as $tag)
-                        <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        <option
+                            @foreach ($post->tags as $item)
+                                {{ $item->id == $tag->id ? 'selected' : '' }}
+                            @endforeach
+                        value="{{ $tag->id }}">{{ $tag->name }}</option>
                     @endforeach
                 </select>
             </div>

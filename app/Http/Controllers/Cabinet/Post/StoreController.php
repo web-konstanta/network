@@ -2,26 +2,15 @@
 
 namespace App\Http\Controllers\Cabinet\Post;
 
-use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Cabinet\Post\BaseController;
 use App\Http\Requests\Post\StoreRequest;
-use App\Models\Post;
-use Illuminate\Support\Facades\Auth;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        $data['image'] = Storage::disk('public')->put('image/', $data['image']);
-        $tags = $data['tags_id'];
-        unset($data['tags_id']);
-        $post = Post::create([
-            'text' => $data['text'],
-            'image' => $data['image'],
-            'user_id' => Auth::user()->id
-        ]);
-        $post->tags()->attach($tags);
+        $this->service->store($data);
         return redirect()->route('cabinet.index');
     }
 }

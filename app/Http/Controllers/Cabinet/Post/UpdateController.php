@@ -3,22 +3,15 @@
 namespace App\Http\Controllers\Cabinet\Post;
 
 use App\Models\Post;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\Post\UpdateRequest;
-use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\Cabinet\Post\BaseController;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
     public function __invoke(UpdateRequest $request, Post $post)
     {
         $data = $request->validated();
-        if (isset($data['image'])) {
-            $data['image'] = Storage::disk('public')->put('image', $data['image']);
-        }
-        $tags = $data['tags_id'];
-        unset($data['tags_id']);
-        $post->update($data);
-        $post->tags()->sync($tags);
+        $this->service->update($data, $post);
         return redirect()->route('cabinet.index');
     }
 }
