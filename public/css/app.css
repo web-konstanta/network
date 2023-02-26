@@ -9,6 +9,31 @@ ul, ol {
     max-width: 1180px;
     margin: 0 auto;
 }
+.sidebar {
+    position: absolute;
+    top: 9.4%;
+    left: 0.57%;
+}
+.sidebar__menu {
+    line-height: 50px;
+}
+.logo {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    margin-bottom: -10px;
+}
+.user__sidebar {
+    text-decoration: none;
+    color: #ffffff;
+}
+.user__avatar {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
 .form__logo {
     color: #ffffff;
     text-align: center;
@@ -122,6 +147,31 @@ ul, ol {
 }
 .main__section-nick {
     margin-right: 10px;
+}
+.posts {
+    margin-top: 5%;
+}
+.posts_list {
+    max-width: 500px;
+    min-height: 500px;
+    margin: 15px auto;
+    justify-content: center;
+    color: #ffffff;
+    border: 1px solid #efefef;
+    border-radius: 7px;
+    padding: 10px;
+}
+.post__item-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.user__item-line {
+    color: #ffffff;
+    width: 100%;
+}
+.user__image {
+    width: 500px;
 }
 @media (max-width: 1400px) {
     .form__button {

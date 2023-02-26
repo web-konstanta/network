@@ -12,6 +12,7 @@ Route::group(['namespace' => 'Cabinet', 'prefix' => 'home', 'middleware' => ['au
     Route::get('/{user}/edit', 'EditController')->name('cabinet.edit');
     Route::put('/{user}', 'UpdateController')->name('cabinet.update');
     Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
+        Route::get('/', 'IndexController')->name('posts.index');
         Route::get('/create', 'CreateController')->name('posts.create');
         Route::post('/', 'StoreController')->name('posts.store');
         Route::get('/{post}', 'ShowController')->name('posts.show');

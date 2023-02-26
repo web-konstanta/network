@@ -9,17 +9,13 @@
 </head>
 <body>
     <div class="wrapper">
+        @include('includes.sidebar')
         <nav class="user__list">
             <div class="user__settings-avatar">
                 <img class="user__avatar" src="{{ url('storage/' . Auth::user()->avatar) }}" alt="Avatar icon">
             </div>
             <header class="user__section">
                 <ul class="user__settings">
-                    <li>
-                        <button>
-                            <a href="{{ route('posts.create') }}" class="user__edit">Add post</a>
-                        </button>
-                    </li>
                     <li>
                         <button>
                             <a href="{{ route('cabinet.edit', Auth::user()->id) }}" class="user__edit">Edit profile</a>

@@ -3,6 +3,7 @@
 @section('title', 'Edit post')
 
 @section('content')
+    @include('includes.sidebar')
     <form action="{{ route('posts.update', $post->id) }}" method="post" class="form" enctype="multipart/form-data">
         @csrf
         @method('put')

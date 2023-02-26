@@ -8,10 +8,28 @@ ul, ol {
 }
 .wrapper {
     margin-top: 5%;
+    align-items: center;
+}
+.sidebar {
+    position: absolute;
+}
+.sidebar__menu {
+    line-height: 50px;
+}
+.logo {
+    font-size: 40px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Indie Flower', cursive;
+    margin-bottom: -10px;
 }
 .user__edit {
     text-decoration: none;
     color: #000000;
+}
+.user__sidebar {
+    text-decoration: none;
+    color: #ffffff;
 }
 .user__link {
     text-decoration: none;

@@ -3,6 +3,7 @@
 @section('title', 'Registration')
 
 @section('content')
+    @include('includes.sidebar')
     <form action="{{ route('cabinet.update', $user->id) }}" method="post" class="form" enctype="multipart/form-data">
         @csrf
         @method('put')

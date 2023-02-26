@@ -3,6 +3,7 @@
 @section('title', 'Add new post')
 
 @section('content')
+    @include('includes.sidebar')
     <form action="{{ route('posts.store') }}" method="post" class="form" enctype="multipart/form-data">
         @csrf
         <div class="form__section">
