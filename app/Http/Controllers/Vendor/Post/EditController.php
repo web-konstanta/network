@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Cabinet\Post;
+namespace App\Http\Controllers\Vendor\Post;
 
 use App\Models\Post;
 use App\Models\Tag;

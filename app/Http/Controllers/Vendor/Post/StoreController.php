@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Cabinet\Post;
+namespace App\Http\Controllers\Vendor\Post;
 
-use App\Http\Controllers\Cabinet\Post\BaseController;
+use App\Http\Controllers\Vendor\Post\BaseController;
 use App\Http\Requests\Post\StoreRequest;
 
 class StoreController extends BaseController

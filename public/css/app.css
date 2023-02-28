@@ -173,6 +173,10 @@ ul, ol {
 .user__image {
     width: 500px;
 }
+.user__link {
+    color: #ffffff;
+    text-decoration: none;
+}
 @media (max-width: 1400px) {
     .form__button {
         width: 275px;

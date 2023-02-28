@@ -63,4 +63,10 @@ class User extends Authenticatable implements MustVerifyEmail
         $user = self::where('id', Auth::user()->id)->first();
         return !$link ? 'add link in bio...' : $user['link'];
     }
+
+    public static function getUserLink($link, $id): string
+    {
+        $user = self::where('id', $id)->first();
+        return !$link ? 'add link in bio...' : $user['link'];
+    }
 }

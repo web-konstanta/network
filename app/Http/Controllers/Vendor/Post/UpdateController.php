@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Cabinet\Post;
+namespace App\Http\Controllers\Vendor\Post;
 
 use App\Models\Post;
 use App\Http\Requests\Post\UpdateRequest;
-use App\Http\Controllers\Cabinet\Post\BaseController;
+use App\Http\Controllers\Vendor\Post\BaseController;
 
 class UpdateController extends BaseController
 {
