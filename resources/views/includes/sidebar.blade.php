@@ -7,7 +7,7 @@
             <a href="{{ route('posts.index') }}" class="user__sidebar">Home</a>
         </li>
         <li>
-            <a href="#" class="user__sidebar">Search users</a>
+            <a href="{{ route('cabinet.search') }}" class="user__sidebar">Search users</a>
         </li>
         <li>
             <a href="{{ route('posts.create') }}" class="user__sidebar">Create post</a>

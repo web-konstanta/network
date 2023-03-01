@@ -70,7 +70,6 @@ hr {
 .posts {
     display: flex;
     flex-wrap: wrap-reverse;
-    justify-content: space-between;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -80,5 +79,5 @@ hr {
     margin-bottom: -10px;
 }
 .posts__section {
-    margin-top: 20px;
+    margin: 20px 16.6px 0 0;
 }

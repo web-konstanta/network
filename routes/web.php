@@ -11,6 +11,8 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
     Route::get('/', 'IndexController')->name('cabinet.index');
     Route::get('/{user}/edit', 'EditController')->name('cabinet.edit');
     Route::put('/{user}', 'UpdateController')->name('cabinet.update');
+    Route::get('/search', 'SearchController')->name('cabinet.search');
+    Route::get('/search/user', 'SearchUserController')->name('cabinet.user.search');
     Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
         Route::get('/', 'IndexController')->name('posts.index');
         Route::get('/create', 'CreateController')->name('posts.create');

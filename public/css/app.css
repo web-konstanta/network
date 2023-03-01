@@ -177,6 +177,36 @@ ul, ol {
     color: #ffffff;
     text-decoration: none;
 }
+.search {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+}
+.search__form {
+    margin: 20% 0 10% 0;
+}
+.search__input {
+    width: 250px;
+    padding: 10px;
+    border-radius: 10px;
+}
+.search__button {
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 10px;
+}
+.search__result {
+    color: #ffffff;
+    width: 120px;
+    margin: 0 auto;
+}
+.search__nick {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+}
 @media (max-width: 1400px) {
     .form__button {
         width: 275px;
