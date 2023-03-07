@@ -24,6 +24,7 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
     });
     Route::group(['namespace' => 'User', 'prefix' => 'user'], function () {
         Route::get('/{user}', 'ShowController')->name('users.show');
+        Route::post('/{user}', 'SubscriberController')->name('users.subscriber');
     });
 });
 

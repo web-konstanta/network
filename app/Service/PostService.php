@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PostService
 {
-    public function store($data)
+    public function store(array $data): void
     {
         $data['image'] = Storage::disk('public')->put('image/', $data['image']);
         $tags = $data['tags_id'];
@@ -22,7 +22,7 @@ class PostService
         $post->tags()->attach($tags);
     }
 
-    public function update($data, $post)
+    public function update(array $data, Post $post): void
     {
         if (isset($data['image'])) {
             $data['image'] = Storage::disk('public')->put('image', $data['image']);
@@ -33,7 +33,7 @@ class PostService
         $post->tags()->sync($tags);
     }
 
-    public function delete($post)
+    public function delete($post): void
     {
         DB::table('post_tag')
             ->where('post_id', $post->id)

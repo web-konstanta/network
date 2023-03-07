@@ -28,6 +28,11 @@
                         </form>
                     </li>
                 </ul>
+                <ul class="user__settings">
+                    <li>{{ $posts->count() }} posts</li>
+                    <li>{{ $user->customers->count() }} followers</li>
+                    <li>{{ $user->users->count() }} following</li>
+                </ul>
                 <ul class="user__info">
                     <li class="user__info-login">{{ Auth::user()->name }}</li>
                     <li>{{ Auth::user()->region }}</li>

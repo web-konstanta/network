@@ -37,6 +37,8 @@ ul, ol {
 }
 .user__settings {
     display: flex;
+    align-items: center;
+    font-size: 14px;
 }
 .user__settings>li {
     margin-right: 20px;

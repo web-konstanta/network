@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -25,7 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('user_id', Auth::user()->id)->get();
-        return view('cabinet.index', compact('posts'));
+        $userId = auth()->user()->id;
+        $posts = Post::where('user_id', $userId)->get();
+        $user = User::where('id', $userId)->first();
+        return view('cabinet.index', compact('posts', 'user'));
     }
 }

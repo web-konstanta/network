@@ -5,6 +5,10 @@ namespace App\Models;
 use App\Notifications\SendVerifyWithQueueNotification;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
@@ -53,9 +57,19 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new SendVerifyWithQueueNotification());
     }
 
-    public function hobby()
+    public function hobby(): BelongsTo
     {
         return $this->belongsTo(Hobby::class, 'hobby_id', 'id');
+    }
+
+    public function customers(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'subscribers', 'customer_id', 'user_id');
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'subscribers', 'user_id', 'customer_id');
     }
 
     public static function getLink($link): string

@@ -18,10 +18,23 @@
             <ul class="user__settings">
                 <li>{{ $user->name }}</li>
                 <li>
-                    <button>
-                        <a href="#" class="user__edit">Follow</a>
-                    </button>
+                    @if(is_null($customer))
+                        <form action="{{ route('users.subscriber', $user->id) }}" method="post">
+                            @csrf
+                            <button>Follow</button>
+                        </form>
+                    @else
+                        <form action="#" method="post">
+                            @csrf
+                            <button>Unfollow</button>
+                        </form>
+                    @endif
                 </li>
+            </ul>
+            <ul class="user__settings">
+                <li>{{ $posts->count() }} posts</li>
+                <li>{{ $user->customers->count() }} followers</li>
+                <li>{{ $user->users->count() }} following</li>
             </ul>
             <ul class="user__info">
                 <li>{{ $user->region }}</li>
