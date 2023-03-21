@@ -35,6 +35,10 @@ ul, ol {
     text-decoration: none;
     color: #5157fa;
 }
+.user__follow {
+    text-decoration: none;
+    color: #ffffff;
+}
 .user__settings {
     display: flex;
     align-items: center;

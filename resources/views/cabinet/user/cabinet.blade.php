@@ -33,8 +33,13 @@
             </ul>
             <ul class="user__settings">
                 <li>{{ $posts->count() }} posts</li>
-                <li>{{ $user->customers->count() }} followers</li>
-                <li>{{ $user->users->count() }} following</li>
+                <li>
+                    <a class="user__follow" href="{{ route('users.subscriber-list', $user->id) }}">{{ $user->customers->count() }} followers</a>
+                </li>
+                <li>
+                    <a class="user__follow" href="{{ route('users.followers-list', $user->id) }}">{{ $user->users->count() }} following</a>
+                
+                </li>
             </ul>
             <ul class="user__info">
                 <li>{{ $user->region }}</li>
@@ -51,7 +56,7 @@
     <h1 class="posts__title">Post</h1>
     <main class="posts">
         @foreach($posts as $post)
-            <a href="#">
+            <a href="{{ route('users.post', $post->id) }}">
                 <section class="posts__section">
                     <img src="{{ url('storage/' . $post->image) }}" width="250" height="300">
                 </section>

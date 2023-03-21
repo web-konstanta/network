@@ -26,6 +26,9 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
         Route::get('/{user}', 'ShowController')->name('users.show');
         Route::post('/{user}', 'SubscriberController')->name('users.subscriber');
         Route::post('/unfollow/{user}', 'UnfollowController')->name('users.unfollow');
+        Route::get('/subscribers/{user}', 'SubscriberListController')->name('users.subscriber-list');
+        Route::get('/followers/{user}', 'FollowersListController')->name('users.followers-list');
+        Route::get('/post/{post}', 'ShowPostController')->name('users.post');
     });
 });
 
