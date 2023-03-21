@@ -4,10 +4,7 @@
 
 @section('content')
     <main class="main__section">
-        <div style="display: flex; flex-direction: column">
-            <img src="{{ url('storage/' . $post->image) }}" class="main__serction-image" width="500">
-            <img style="width: 24px; margin: 10px 0 -30px 0" src="{{ asset('img/heart.png') }}">
-        </div>
+        <img src="{{ url('storage/' . $post->image) }}" class="main__serction-image" width="500">
         <div>
             <div class="main__section-block">
                 <img src="{{ url('storage/' . Auth::user()->avatar) }}" class="main__section-avatar">
@@ -30,7 +27,7 @@
                 @foreach ($post->tags as $tag)
                     <li>#{{ $tag->name }}</li>
                 @endforeach
-            </ul>
+            </ule=>
         </div>
     </main>
 @endsection

@@ -152,11 +152,12 @@ ul, ol {
     margin-top: 5%;
 }
 .posts_list {
+    background-color: #ffffff;
     max-width: 500px;
     min-height: 500px;
     margin: 15px auto;
     justify-content: center;
-    color: #ffffff;
+    color: #000000;
     border: 1px solid #efefef;
     border-radius: 7px;
     padding: 10px;
@@ -174,7 +175,7 @@ ul, ol {
     width: 500px;
 }
 .user__link {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
 }
 .search {

@@ -30,8 +30,12 @@
                 </ul>
                 <ul class="user__settings">
                     <li>{{ $posts->count() }} posts</li>
-                    <li>{{ $user->customers->count() }} followers</li>
-                    <li>{{ $user->users->count() }} following</li>
+                    <li>
+                        <a class="user__follow" href="{{ route('users.subscriber-list', $user->id) }}">{{ $user->customers->count() }} followers</a>
+                    </li>
+                    <li>
+                        <a class="user__follow" href="{{ route('users.followers-list', $user->id) }}">{{ $user->users->count() }} following</a>
+                    </li>
                 </ul>
                 <ul class="user__info">
                     <li class="user__info-login">{{ Auth::user()->name }}</li>

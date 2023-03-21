@@ -14,6 +14,7 @@
                     </div>
                     <hr class="user__item-line">
                     <img class="user__image" src="{{ url('storage/' . $post->image) }}">
+                    <img src="{{ asset('img/heart.png') }}">
                     <p>{{ $post->text }}</p>
                 </section>
             </div>
