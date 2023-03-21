@@ -26,7 +26,7 @@ class StoreRequest extends FormRequest
         return [
             'text' => 'required|string',
             'image' => 'required|file',
-            'tags_id' => ''
+            'tags_id' => 'exists:App\Models\Tag,id'
         ];
     }
 }

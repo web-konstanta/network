@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             'text' => 'required|string',
             'image' => 'file',
-            'tags_id' => ''
+            'tags_id' => 'exists:App\Models\Tag,id'
         ];
     }
 }
