@@ -9,6 +9,7 @@ class ShowPostController extends Controller
 {
     public function __invoke(Post $post)
     {
-        return view('cabinet.user.post_show', compact('post'));  
+        $currentUser = auth()->user();
+        return view('cabinet.user.post_show', compact('post', 'currentUser'));  
     }
 }
