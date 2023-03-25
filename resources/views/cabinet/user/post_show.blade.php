@@ -4,7 +4,16 @@
 
 @section('content')
     <main class="main__section">
-        <img src="{{ url('storage/' . $post->image) }}" class="main__serction-image" width="500">
+        <div style="display: flex; flex-direction: column">
+            <img src="{{ url('storage/' . $post->image) }}" class="main__serction-image" width="500">
+            <p>
+                <span id="countLikes">{{ $post->likes->count() }}</span> likes
+            </p>
+            <div style="display: flex">
+                <img id="like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
+                <img id="unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
+            </div>
+        </div>
         <div>
             <div class="main__section-block">
                 <img src="{{ url('storage/' . $post->user->avatar) }}" class="main__section-avatar">
