@@ -6,7 +6,9 @@
     <main class="main__section">
         <div style="display: flex; flex-direction: column">
             <img src="{{ url('storage/' . $post->image) }}" class="main__serction-image" width="500">
-            <img style="width: 24px; margin: 10px 0 -30px 0" src="{{ asset('img/heart.png') }}">
+            <p style="margin-bottom: -20px">
+                <span id="countLikes">{{ $post->likes->count() }}</span> likes
+            </p>
         </div>
         <div>
             <div class="main__section-block">

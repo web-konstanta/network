@@ -18,14 +18,6 @@
             <div class="main__section-block">
                 <img src="{{ url('storage/' . $post->user->avatar) }}" class="main__section-avatar">
                 <p class="main__section-nick">{{ $post->user->name }}</p>
-                <button>
-                    <a href="{{ route('posts.edit', $post->id) }}">Edit</a>
-                </button>
-                <form action="{{ route('posts.destroy', $post->id) }}" method="post">
-                    @csrf
-                    @method('delete')
-                    <button>Delete</button>
-                </form>
             </div>
             <hr>
             <div class="main__section-block">
