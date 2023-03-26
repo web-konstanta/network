@@ -18,6 +18,7 @@ class IndexController extends Controller
         $posts = Post::whereIn('user_id', $customersIds)
             ->orderBy('id', 'desc')
             ->get();
-        return view('cabinet.post.index', compact('posts'));
+        $currentUser = auth()->user();
+        return view('cabinet.post.index', compact('posts', 'currentUser'));
     }
 }

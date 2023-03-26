@@ -16,8 +16,7 @@
 <script>
     $(document).ready(() => {
 
-        $('#like').click(() => {
-
+        function clickLike() {
             let postId = $('#like').attr('data-id')
 
             $('#like').css('visibility', 'collapse')
@@ -37,10 +36,9 @@
             })
             
             return false
-        })
+        }
 
-        $('#unlike').click(() => {
-
+        function clickUnlike() {
             let postId = $('#unlike').attr('data-id')
 
             $('#like').css('visibility', 'visible')
@@ -60,7 +58,11 @@
             })
             
             return false
-        })
+        }
+
+        $('#like').click(clickLike)
+
+        $('#unlike').click(clickUnlike)
 
     })
 </script>
