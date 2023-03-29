@@ -17,9 +17,9 @@
                     <p>
                         <span id="countLikes">{{ $post->likes->count() }}</span> likes
                     </p>
-                    <div style="display: flex">
-                        <img id="like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
-                        <img id="unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
+                    <div class="likes" data-id="{{ $post->id }}" style="display: flex">
+                        <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
+                        <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
                     </div>
                     <p>{{ $post->text }}</p>
                 </section>
