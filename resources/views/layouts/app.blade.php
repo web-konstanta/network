@@ -17,7 +17,11 @@
 <script>
     $(document).ready(() => {
 
+<<<<<<< HEAD
         function clickLike(element) {
+=======
+        function clickLike() {
+>>>>>>> b608c780afce6191652c99ec67632ced0f9ce2fa
             let postId = $('#like').attr('data-id')
 
             $('#like').css('visibility', 'collapse')
