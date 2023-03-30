@@ -11,8 +11,7 @@ class ShowPostController extends Controller
     public function __invoke(Post $post)
     {
         $currentUser = auth()->user();
-        $comments = Comment::where('user_id', auth()->user()->id)
-                            ->where('post_id', $post->id)
+        $comments = Comment::where('post_id', $post->id)
                             ->get();
         return view('cabinet.user.post_show', compact('post', 'currentUser', 'comments'));  
     }

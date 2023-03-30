@@ -27,6 +27,9 @@
                         </a>
                     </div>
                     <p>{{ $post->text }}</p>
+                    @if ($post->comments->count() !== 0)
+                        <p>View all {{ $post->comments->count() }} comments</p>
+                    @endif
                 </section>
             </div>
         @endforeach
