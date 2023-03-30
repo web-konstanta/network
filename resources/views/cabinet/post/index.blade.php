@@ -28,7 +28,7 @@
                     </div>
                     <p>{{ $post->text }}</p>
                     @if ($post->comments->count() !== 0)
-                        <p>View all {{ $post->comments->count() }} comments</p>
+                        <a href="{{ route('users.post', $post->id) }}" style="opacity: 0.5; text-decoration: none; color: #000000">View all {{ $post->comments->count() }} comments</p>
                     @endif
                 </section>
             </div>

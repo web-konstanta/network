@@ -34,11 +34,24 @@
             </ul>
             <div>
                 @foreach ($comments as $comment)
-                    <div class="main__section-block">
-                        <img src="{{ url('storage/' . $comment->user->avatar) }}" class="main__section-avatar">
-                        <p>{{ $comment->user->name }}</p>
+                    <div style="display: flex; justify-content: space-between">
+                        <div>
+                            <div class="main__section-block">
+                                <img src="{{ url('storage/' . $comment->user->avatar) }}" class="main__section-avatar">
+                                <p>{{ $comment->user->name }}</p>
+                            </div>
+                            <p style="margin-top: -5px">{{ $comment->text }}</p>
+                        </div>
+                        @if ($currentUser->id === $comment->user_id)
+                            <form action="{{ route('users.comments.delete', $comment->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="border: none; background: none">
+                                    <img src="{{ asset('img/remove.png') }}" style="width: 24px; height: 24px; margin-top: 26px">
+                                </button>
+                            </form>
+                        @endif
                     </div>
-                    <p style="margin-top: -5px">{{ $comment->text }}</p>
                 @endforeach
             </div>
             <div class="comments-list">
