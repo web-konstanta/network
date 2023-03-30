@@ -14,6 +14,7 @@
 </div>
 <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js') }}"></script>
 <script src="{{ asset('js/likes.js') }}"></script>
+<script src="{{ asset('js/comments.js') }}"></script>
 <script>
     $(document).ready(() => {
 

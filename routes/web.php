@@ -31,6 +31,7 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
         Route::get('/post/{post}', 'ShowPostController')->name('users.post');
         Route::post('/post/like/{postId}', 'LikeController')->name('users.like');
         Route::post('/post/unlike/{postId}', 'UnlikeController')->name('users.like');
+        Route::post('/post/comment/{postId}/{text}', 'CommentController')->name('users.comment');
     });
 });
 

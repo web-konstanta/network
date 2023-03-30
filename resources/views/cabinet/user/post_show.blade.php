@@ -9,9 +9,12 @@
             <p>
                 <span id="countLikes">{{ $post->likes->count() }}</span> likes
             </p>
-            <div style="display: flex">
-                <img id="like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
-                <img id="unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
+            <div class="user__options">
+                <div class="likes" data-id="{{ $post->id }}" style="display: flex">
+                    <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
+                    <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
+                </div>
+                <img id="comment" src="{{ asset('img/bubble-chat.png') }}">
             </div>
         </div>
         <div>
@@ -28,7 +31,23 @@
                 @foreach ($post->tags as $tag)
                     <li>#{{ $tag->name }}</li>
                 @endforeach
-            </ule=>
+            </ul>
+            <div>
+                @foreach ($comments as $comment)
+                    <div class="main__section-block">
+                        <img src="{{ url('storage/' . $comment->user->avatar) }}" class="main__section-avatar">
+                        <p>{{ $comment->user->name }}</p>
+                    </div>
+                    <p style="margin-top: -5px">{{ $comment->text }}</p>
+                @endforeach
+            </div>
+            <div class="comments-list">
+            </div>
+            <div class="modal">
+                <p class="modal__close">X</p>
+                <input class="modal__input"></textarea>
+                <input data-id="{{ $post->id }}" type="submit" value="Add comment" class="modal__button">
+            </div>
         </div>
     </main>
 @endsection
