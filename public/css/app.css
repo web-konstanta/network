@@ -53,6 +53,8 @@ ul, ol {
 }
 .user__options {
     display: flex;
+    justify-content: space-between;
+    max-width: 140px;
 }
 .user__sidebar {
     text-decoration: none;

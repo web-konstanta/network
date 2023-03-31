@@ -13,6 +13,9 @@
             <a href="{{ route('posts.create') }}" class="user__sidebar">Create post</a>
         </li>
         <li>
+            <a href="{{ route('posts.saved') }}" class="user__sidebar">Saved posts</a>
+        </li>
+        <li>
             <a href="{{ route('cabinet.index') }}" class="user__sidebar">Profile</a>
         </li>
     </ul>

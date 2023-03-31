@@ -42,4 +42,12 @@ class Post extends Model
                     ->first();
         return $like;
     }
+
+    public function isSavedBy($postId, $user): mixed
+    {
+        $savedPost = SavePost::where('post_id', $postId)
+                            ->where('user_id', $user->id)
+                            ->first();
+        return $savedPost;
+    }
 }

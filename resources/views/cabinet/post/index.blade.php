@@ -22,9 +22,13 @@
                             <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
                             <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
                         </div>
-                        <a href="{{ route('users.post', $post->id) }}">
-                            <img src="{{ asset('img/bubble-chat.png') }}">
+                        <a style="margin-right: 25px" href="{{ route('users.post', $post->id) }}">
+                            <img style="height: 24px" src="{{ asset('img/bubble-chat.png') }}">
                         </a>
+                        <div class="save-buttons" data-id="{{ $post->id }}" style="display: flex">
+                            <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'visibility: collapse' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
+                            <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">
+                        </div>
                     </div>
                     <p>{{ $post->text }}</p>
                     @if ($post->comments->count() !== 0)

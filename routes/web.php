@@ -21,6 +21,7 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
         Route::get('/{post}/edit', 'EditController')->name('posts.edit');
         Route::put('/{post}/update', 'UpdateController')->name('posts.update');
         Route::delete('/{post}/delete', 'DestroyController')->name('posts.destroy');
+        Route::get('/saved/users/posts', 'SavedPostsController')->name('posts.saved');
     });
     Route::group(['namespace' => 'User', 'prefix' => 'user'], function () {
         Route::get('/{user}', 'ShowController')->name('users.show');
@@ -33,6 +34,8 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
         Route::post('/post/unlike/{postId}', 'UnlikeController')->name('users.like');
         Route::post('/post/comment/{postId}/{text}', 'CommentController')->name('users.comment');
         Route::delete('/comment/{comment}', 'CommentDeleteController')->name('users.comments.delete');
+        Route::post('/post/save/{postId}', 'SavePostController')->name('users.save.post');
+        Route::post('/post/unsave/{postId}', 'UnsavePostController')->name('users.unsave.post');
     });
 });
 
