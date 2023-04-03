@@ -16,6 +16,7 @@
 <script src="{{ asset('js/likes.js') }}"></script>
 <script src="{{ asset('js/comments.js') }}"></script>
 <script src="{{ asset('js/save-posts.js') }}"></script>
+<script src="{{ asset('js/complains.js') }}"></script>
 <script>
     $(document).ready(() => {
 
@@ -37,7 +38,7 @@
             .done((data) => {
                 $('#countLikes').html(data.countLikes)
             })
-            
+
             return false
         }
 
@@ -59,7 +60,7 @@
             .done((data) => {
                 $('#countLikes').html(data.countLikes)
             })
-            
+
             return false
         }
 

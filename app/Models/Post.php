@@ -35,7 +35,7 @@ class Post extends Model
         return $this->hasMany(Comment::class);
     }
 
-    public function isLikedBy($postId, $user): mixed
+    public function isLikedBy(int $postId, object $user): mixed
     {
         $like = Like::where('post_id', $postId)
                     ->where('user_id', $user->id)
@@ -43,11 +43,19 @@ class Post extends Model
         return $like;
     }
 
-    public function isSavedBy($postId, $user): mixed
+    public function isSavedBy(int $postId, object $user): mixed
     {
         $savedPost = SavePost::where('post_id', $postId)
                             ->where('user_id', $user->id)
                             ->first();
         return $savedPost;
+    }
+
+    public function isComplainedBy(int $postId, object $user): mixed
+    {
+        $complainedPost = Complain::where('user_id', $user->id)
+                                ->where('post_id', $postId)
+                                ->first();
+        return $complainedPost;
     }
 }

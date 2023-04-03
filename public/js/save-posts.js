@@ -8,8 +8,8 @@ $(document).ready(() => {
 
 		$(button.firstElementChild).click(() => {
 
-			$(button.firstElementChild).css('visibility', 'collapse')
-			$(button.lastElementChild).css('visibility', 'visible')
+			$(button.firstElementChild).css('display', 'none')
+			$(button.lastElementChild).css('display', 'block')
 
 			$.ajax({
 				headers: {
@@ -25,8 +25,8 @@ $(document).ready(() => {
 
 		$(button.lastElementChild).click(() => {
 
-			$(button.firstElementChild).css('visibility', 'visible')
-			$(button.lastElementChild).css('visibility', 'collapse')
+			$(button.firstElementChild).css('display', 'block')
+			$(button.lastElementChild).css('display', 'none')
 
 			$.ajax({
 				headers: {

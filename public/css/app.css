@@ -24,6 +24,15 @@ ul, ol {
     font-family: 'Indie Flower', cursive;
     margin-bottom: -10px;
 }
+.modal__success {
+    position: absolute;
+    top: 35%;
+    left: 27.5%;
+    width: 600px;
+    height: 150px;
+    border: 2px solid #000000;
+    background-color: #ffffff;
+}
 .modal {
     visibility: collapse;
     position: absolute;

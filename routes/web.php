@@ -36,6 +36,7 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
         Route::delete('/comment/{comment}', 'CommentDeleteController')->name('users.comments.delete');
         Route::post('/post/save/{postId}', 'SavePostController')->name('users.save.post');
         Route::post('/post/unsave/{postId}', 'UnsavePostController')->name('users.unsave.post');
+        Route::post('/post/complain/{postId}', 'ComplainController')->name('users.complain');
     });
 });
 

@@ -11,13 +11,13 @@
             </p>
             <div class="user__options">
                 <div class="likes" data-id="{{ $post->id }}" style="display: flex">
-                    <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'visibility: collapse' : '' }}" src="{{ asset('img/heart.png') }}">
-                    <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" src="{{ asset('img/heart(1).png') }}">
+                    <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'display: none' : '' }}" src="{{ asset('img/heart.png') }}">
+                    <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'display: none' }}" src="{{ asset('img/heart(1).png') }}">
                 </div>
                 <img id="comment" style="margin-left: -20px" src="{{ asset('img/bubble-chat.png') }}">
                 <div class="save-buttons" data-id="{{ $post->id }}" style="display: flex">
-                    <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'visibility: collapse' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
-                    <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'visibility: collapse' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">
+                    <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'display: none' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
+                    <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'display: none' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">
                 </div>
             </div>
         </div>
