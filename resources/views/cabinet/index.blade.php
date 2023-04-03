@@ -42,8 +42,8 @@
                     <li>{{ Auth::user()->region }}</li>
                     <li>{{ Auth::user()->hobby->name }}</li>
                     <li>
-                        <a href="{{ App\Models\User::getLink(Auth::user()->link) }}" class="user__link">
-                            {{ App\Models\User::getLink(Auth::user()->link) }}
+                        <a href="{{ $user->getLink(Auth::user()->link) }}" class="user__link">
+                            {{ $user->getLink(Auth::user()->link) }}
                         </a>
                     </li>
                 </ul>

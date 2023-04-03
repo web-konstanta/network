@@ -9,15 +9,23 @@
             <p>
                 <span id="countLikes">{{ $post->likes->count() }}</span> likes
             </p>
-            <div class="user__options">
-                <div class="likes" data-id="{{ $post->id }}" style="display: flex">
-                    <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'display: none' : '' }}" src="{{ asset('img/heart.png') }}">
-                    <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'display: none' }}" src="{{ asset('img/heart(1).png') }}">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+                <div class="user__options">
+                    <div class="likes" data-id="{{ $post->id }}" style="display: flex; margin-right: 20px">
+                        <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'display: none' : '' }}" src="{{ asset('img/heart.png') }}">
+                        <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'display: none' }}" src="{{ asset('img/heart(1).png') }}">
+                    </div>
+                    <a style="margin-right: 20px" href="{{ route('users.post', $post->id) }}">
+                        <img style="height: 24px" src="{{ asset('img/bubble-chat.png') }}">
+                    </a>
+                    <div class="save-buttons" data-id="{{ $post->id }}" style="display: flex">
+                        <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'display: none' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
+                        <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'display: none' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">
+                    </div>
                 </div>
-                <img id="comment" style="margin-left: -20px" src="{{ asset('img/bubble-chat.png') }}">
-                <div class="save-buttons" data-id="{{ $post->id }}" style="display: flex">
-                    <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'display: none' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
-                    <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'display: none' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">
+                <div class="complains">
+                    <button id="send" data-id="{{ $post->id }}" style="{{ $post->isComplainedBy($post->id, $currentUser) ? 'display: none' : '' }}">Send a complain</button>
+                    <button style="{{ $post->isComplainedBy($post->id, $currentUser) ? '' : 'display: none' }}">Complain sent</button>
                 </div>
             </div>
         </div>
