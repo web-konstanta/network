@@ -72,13 +72,13 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(User::class, 'subscribers', 'user_id', 'customer_id');
     }
 
-    public function getLink($link): string
+    public function getLink(string|null $link): string
     {
         $user = self::where('id', Auth::user()->id)->first();
         return !$link ? 'add link in bio...' : $user['link'];
     }
 
-    public static function getUserLink($link, $id): string
+    public static function getUserLink(string $link, int $id): string
     {
         $user = self::where('id', $id)->first();
         return !$link ? 'add link in bio...' : $user['link'];

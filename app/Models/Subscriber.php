@@ -9,5 +9,6 @@ use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 class Subscriber extends Model
 {
     use HasFactory;
+
     protected $guarded = [];
 }

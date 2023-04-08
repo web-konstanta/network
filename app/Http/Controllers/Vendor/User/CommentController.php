@@ -7,7 +7,7 @@ use App\Models\Comment;
 
 class CommentController extends Controller
 {
-	public function __invoke($postId, $text)
+	public function __invoke(int $postId, string $text)
 	{
 		$user = auth()->user();
 		$data = [
