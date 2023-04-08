@@ -5,10 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\Facades\Image;
+
+use function PHPSTORM_META\map;
 
 class RegisterController extends Controller
 {
@@ -65,9 +69,13 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \App\Models\User
      */
-    protected function create(array $data)
+    protected function create(array $data): object
     {
-        $data['avatar'] = Storage::disk('public')->put('avatar/', $data['avatar']);
+        $avatarName = md5(Carbon::now() . '_' . $data['avatar']->getClientOriginalName());
+        $avatar = Image::make($data['avatar'])
+            ->fit(80, 80)
+            ->save(public_path('storage/avatar/' . $avatarName . '.jpg'));
+        $data['avatar'] = 'avatar/' . $avatar->basename;
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
