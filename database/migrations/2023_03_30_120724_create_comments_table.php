@@ -22,7 +22,10 @@ class CreateCommentsTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->index('user_id', 'comment_user_idx');
-            $table->foreign('user_id', 'comment_user_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'comment_user_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
 
             $table->string('text');
 
