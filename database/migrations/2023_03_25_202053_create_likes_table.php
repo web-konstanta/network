@@ -18,7 +18,10 @@ class CreateLikesTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->index('user_id', 'user_like_idx');
-            $table->foreign('user_id', 'user_like_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'user_like_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('post_id');
             $table->index('post_id', 'post_like_idx');

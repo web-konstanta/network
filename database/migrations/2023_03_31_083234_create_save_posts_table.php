@@ -18,7 +18,10 @@ class CreateSavePostsTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->index('user_id', 'user_save-post_idx');
-            $table->foreign('user_id', 'user_save-post_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'user_save-post_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('post_id');
             $table->index('post_id', 'post_save-post_idx');

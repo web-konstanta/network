@@ -18,7 +18,10 @@ class CreateComplainsTable extends Migration
 
             $table->unsignedBigInteger('user_id');
             $table->index('user_id', 'user_complain_idx');
-            $table->foreign('user_id', 'user_complain_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'user_complain_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('post_id');
             $table->index('post_id', 'post_complain_idx');

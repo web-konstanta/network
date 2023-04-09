@@ -18,7 +18,10 @@ class CreateSubscribersTable extends Migration
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->index('user_id', 'subscribers_user_customer_idx');
-            $table->foreign('user_id', 'subscribers_user_customer_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'subscribers_user_customer_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
 
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->index('customer_id', 'subscribers_customer_user_idx');
