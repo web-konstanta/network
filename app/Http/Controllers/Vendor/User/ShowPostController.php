@@ -13,6 +13,6 @@ class ShowPostController extends Controller
         $currentUser = auth()->user();
         $comments = Comment::where('post_id', $post->id)
                             ->get();
-        return view('cabinet.user.post_show', compact('post', 'currentUser', 'comments'));  
+        return view('cabinet.user.post_show', compact('post', 'currentUser', 'comments'));
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -57,6 +58,11 @@ class User extends Authenticatable implements MustVerifyEmail
         $this->notify(new SendVerifyWithQueueNotification());
     }
 
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Post::class, 'user_id', 'id');
+    }
+
     public function hobby(): BelongsTo
     {
         return $this->belongsTo(Hobby::class, 'hobby_id', 'id');
@@ -78,7 +84,7 @@ class User extends Authenticatable implements MustVerifyEmail
         return !$link ? 'add link in bio...' : $user['link'];
     }
 
-    public static function getUserLink(string $link, int $id): string
+    public static function getUserLink(string|null $link, int $id): string
     {
         $user = self::where('id', $id)->first();
         return !$link ? 'add link in bio...' : $user['link'];

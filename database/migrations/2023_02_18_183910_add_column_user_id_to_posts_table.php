@@ -16,7 +16,10 @@ class AddColumnUserIdToPostsTable extends Migration
         Schema::table('posts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->after('image')->nullable();
             $table->index('user_id', 'post_user_idx');
-            $table->foreign('user_id', 'post_user_fk')->on('users')->references('id');
+            $table->foreign('user_id', 'post_user_fk')
+                ->on('users')
+                ->references('id')
+                ->onDelete('cascade');
         });
     }
 

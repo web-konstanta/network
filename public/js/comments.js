@@ -1,14 +1,12 @@
-let comment = $('#comment')
 let modal = $('.modal')
-let modalClose = $('.modal__close')
 let postId = $('.modal__button').attr('data-id')
 let button = $('.modal__button')
 let input = $('.modal__input')
 
-comment.click(() => {
+$('#comment').click(() => {
 	modal.css('visibility', 'visible')
 })
-modalClose.click(() => {
+$('.modal__close').click(() => {
 	modal.css('visibility', 'collapse')
 })
 button.click(() => {

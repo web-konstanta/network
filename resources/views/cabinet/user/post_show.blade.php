@@ -15,9 +15,10 @@
                         <img id="posts-like" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? 'display: none' : '' }}" src="{{ asset('img/heart.png') }}">
                         <img id="posts-unlike" data-id="{{ $post->id }}" style="width: 24px; {{ $post->isLikedBy($post->id, $currentUser) ? '' : 'display: none' }}" src="{{ asset('img/heart(1).png') }}">
                     </div>
-                    <a style="margin-right: 20px" href="{{ route('users.post', $post->id) }}">
+                    <img id="comment" style="margin-right: 20px; height: 24px" src="{{ asset('img/bubble-chat.png') }}">
+                    {{-- <a style="margin-right: 20px" href="{{ route('users.post', $post->id) }}">
                         <img style="height: 24px" src="{{ asset('img/bubble-chat.png') }}">
-                    </a>
+                    </a> --}}
                     <div class="save-buttons" data-id="{{ $post->id }}" style="display: flex">
                         <img id="save" style="{{ !is_null($post->isSavedBy($post->id, $currentUser)) ? 'display: none' : '' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/save-instagram.png') }}">
                         <img id="unsave" style="{{ $post->isSavedBy($post->id, $currentUser) ? '' : 'display: none' }}" data-id="{{ $post->id }}" style="height: 24px" src="{{ asset('img/bookmark.png') }}">

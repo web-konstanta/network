@@ -13,6 +13,7 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
     Route::put('/{user}', 'UpdateController')->name('cabinet.update');
     Route::get('/search', 'SearchController')->name('cabinet.search');
     Route::get('/search/user', 'SearchUserController')->name('cabinet.user.search');
+    Route::delete('/delete/{user}', 'DestroyController')->name('cabinet.user.delete');
     Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
         Route::get('/', 'IndexController')->name('posts.index');
         Route::get('/create', 'CreateController')->name('posts.create');

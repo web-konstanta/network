@@ -6,6 +6,9 @@
     <form action="{{ route('login') }}" method="post" class="form">
         @csrf
         <div class="form__section">
+            @if(Session::has('success'))
+                <p style="color: #f00f00">{{ session('success') }}</p>
+            @endif
             <h1 class="form__logo">Social network</h1>
             <div class="form__block">
                 <input class="form__input-login" type="email" name="email" placeholder="User name or email">

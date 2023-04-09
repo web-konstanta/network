@@ -53,9 +53,6 @@ class PostService
 
     public function delete($post): void
     {
-        DB::table('post_tag')
-            ->where('post_id', $post->id)
-            ->delete();
         $post->delete();
     }
 }

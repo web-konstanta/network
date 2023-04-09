@@ -22,9 +22,16 @@
                         </button>
                     </li>
                     <li>
-                        <form action="{{ route('logout') }}" method="POST" class="d-none">
+                        <form action="{{ route('logout') }}" method="POST">
                             @csrf
                             <button>Logout</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form action="{{ route('cabinet.user.delete', Auth::user()->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button class="delete-account">Delete account</button>
                         </form>
                     </li>
                 </ul>
