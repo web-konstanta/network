@@ -41,4 +41,8 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
     });
 });
 
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
+    Route::get('/', 'IndexController')->name('admin.index');
+});
+
 Auth::routes(['verify' => true]);
