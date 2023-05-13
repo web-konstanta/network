@@ -10,7 +10,7 @@ class DestroyController extends BaseController
 {
     public function __invoke(Post $post): RedirectResponse
     {
-        $this->service->delete($post);
+        $post->delete();
         return redirect()->route('cabinet.index');
     }
 }

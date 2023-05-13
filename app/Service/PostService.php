@@ -50,9 +50,4 @@ class PostService
         $post->update($data);
         $post->tags()->sync($tags);
     }
-
-    public function delete($post): void
-    {
-        $post->delete();
-    }
 }
