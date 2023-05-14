@@ -24,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (auth()->user()->role !== User::USER_ROLE) {
+            return redirect()->route('admin.index');
+        }
         $userId = auth()->user()->id;
         $posts = Post::where('user_id', $userId)->get();
         $user = User::where('id', $userId)->first();
