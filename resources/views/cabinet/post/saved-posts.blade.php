@@ -13,11 +13,13 @@
         <h1 class="posts__title">Saved posts</h1>
         <main class="posts">
             @foreach ($posts as $post)
-                <a href="{{ route('users.post', $post->post->id) }}">
-                    <section class="posts__section">
-                        <img src="{{ url('storage/' . $post->post->image) }}" width="250" height="300">
-                    </section>
-                </a>
+                @if(!is_null($post->post))
+                    <a href="{{ route('users.post', $post->post->id) }}">
+                        <section class="posts__section">
+                            <img src="{{ url('storage/' . $post->post->image) }}" width="250" height="300">
+                        </section>
+                    </a>
+                @endif
             @endforeach
         </main>
     </div>

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Admin\Post\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])
+    ->middleware('verified')
+    ->name('home');
 
-Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['auth', 'admin', 'verified']], function () {
+Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['auth', 'verified']], function () {
     Route::get('/', 'IndexController')->name('cabinet.index');
     Route::get('/{user}/edit', 'EditController')->name('cabinet.edit');
     Route::put('/{user}', 'UpdateController')->name('cabinet.update');
@@ -43,6 +46,12 @@ Route::group(['namespace' => 'Vendor', 'prefix' => 'home', 'middleware' => ['aut
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function () {
     Route::get('/', 'IndexController')->name('admin.index');
+    Route::group(['namespace' => 'Post', 'prefix' => 'post'], function () {
+        Route::get('/', 'IndexController')->name('admin.post.index');
+        Route::get('/{post}', 'ShowController')->name('admin.post.show');
+        Route::post('/approve/{post}', 'ApproveController')->name('admin.post.approve');
+        Route::post('/delete/{post}', 'DestroyController')->name('admin.post.destroy');
+    });
 });
 
 Auth::routes(['verify' => true]);

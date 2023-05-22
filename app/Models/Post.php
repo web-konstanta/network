@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class Post extends Model
 {
@@ -32,6 +33,22 @@ class Post extends Model
     public function comments(): HasMany
     {
         return $this->hasMany(Comment::class);
+    }
+
+    public function complains(): HasMany
+    {
+        return $this->hasMany(Complain::class);
+    }
+
+    public static function getComplainedPosts(): Collection
+    {
+        $complainedPosts = collect();
+
+        foreach (self::all() as $post) {
+            if ($post->complains->count() != 0) $complainedPosts->add($post);
+        }
+
+        return $complainedPosts;
     }
 
     public function isLikedBy(int $postId, object $user): mixed
