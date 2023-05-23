@@ -16,7 +16,7 @@
             </div>
             <div class="form__block">
                 <h4 class="form__label">Change the avatar</h4>
-                <input class="form__input" name="image" type="file">
+                <input class="form__input custom-file-input" name="image" type="file">
                 @error('image')
                     <p style="color: #f00f00">{{ $message }}</p>
                 @enderror

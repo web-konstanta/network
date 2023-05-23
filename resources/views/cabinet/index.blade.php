@@ -17,22 +17,18 @@
             <header class="user__section">
                 <ul class="user__settings">
                     <li>
-                        <button>
+                        <button class="user__buttons">
                             <a href="{{ route('cabinet.edit', Auth::user()->id) }}" class="user__edit">Edit profile</a>
                         </button>
                     </li>
                     <li>
                         <form action="{{ route('logout') }}" method="POST">
                             @csrf
-                            <button>Logout</button>
+                            <button class="user__buttons">Logout</button>
                         </form>
                     </li>
                     <li>
-                        <form action="{{ route('cabinet.user.delete', Auth::user()->id) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="delete-account">Delete account</button>
-                        </form>
+                        <button class="delete-account user__buttons">Delete account</button>
                     </li>
                 </ul>
                 <ul class="user__settings">
@@ -47,7 +43,7 @@
                 <ul class="user__info">
                     <li class="user__info-login">{{ Auth::user()->name }}</li>
                     <li>{{ Auth::user()->region }}</li>
-                    <li>{{ Auth::user()->hobby->name }}</li>
+                    <li>{{ $user->getHobbyName($user->hobby_id) }}</li>
                     <li>
                         <a href="{{ $user->getLink(Auth::user()->link) }}" class="user__link">
                             {{ $user->getLink(Auth::user()->link) }}
@@ -56,8 +52,17 @@
                 </ul>
             </header>
         </nav>
+        <div class="delete__alert">
+            <div class="delete-alert" style="float: right; cursor: pointer">X</div>
+            <p>Do you really want to delete an account?</p>
+            <form action="{{ route('cabinet.user.delete', $user->id) }}" method="post">
+                @method('DELETE')
+                @csrf
+                <button style="border-radius: 10px; padding: 5px 10px; border: none; background: grey; color: #ffffff">Delete account</button>
+            </form>
+        </div>
         <hr>
-        <h1 class="posts__title">Post</h1>
+        <h1 class="posts__title">Posts</h1>
         <main class="posts">
             @foreach ($posts as $post)
                 <a href="{{ route('posts.show', $post->id) }}">
@@ -68,5 +73,7 @@
             @endforeach
         </main>
     </div>
+    <script src="{{ asset('https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js') }}"></script>
+<script src="{{ asset('js/delete-account.js') }}"></script>
 </body>
 </html>

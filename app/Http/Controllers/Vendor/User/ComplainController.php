@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Vendor\User;
 use App\Http\Controllers\Controller;
 use App\Jobs\ComplainJob;
 use App\Models\Complain;
+use App\Models\User;
 
 class ComplainController extends Controller
 {

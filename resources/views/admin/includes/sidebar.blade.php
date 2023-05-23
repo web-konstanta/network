@@ -6,7 +6,7 @@
             <img src="{{ url('storage/' . $user->avatar) }}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-            <a href="#" class="d-block">Nickname: {{ $user->name }}</a>
+            <a href="{{ route('admin.index') }}" class="d-block">Nickname: {{ $user->name }}</a>
         </div>
     </div>
 
@@ -25,6 +25,17 @@
                     </p>
                 </a>
             </li>
+            @if($user->role === \App\Models\User::ADMIN_ROLE)
+                <li class="nav-item">
+                    <a href="{{ route('admin.user.index') }}" class="nav-link">
+                        <i class="nav-icon far fa-calendar-alt"></i>
+                        <p>
+                            <span>User management</span>
+                            <span class="badge badge-info">{{ \App\Models\User::all()->count() }}</span>
+                        </p>
+                    </a>
+                </li>
+            @endif
         </ul>
     </nav>
     <!-- /.sidebar-menu -->

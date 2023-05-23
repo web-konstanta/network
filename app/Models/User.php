@@ -21,6 +21,12 @@ class User extends Authenticatable implements MustVerifyEmail
     const ADMIN_ROLE = 1;
     const MODERATOR_ROLE = 2;
 
+    const ROLES = [
+        self::USER_ROLE      => 'user',
+        self::ADMIN_ROLE     => 'admin',
+        self::MODERATOR_ROLE => 'moderator'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,7 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'avatar',
         'password',
         'hobby_id',
-        'link'
+        'link',
+        'role'
     ];
 
     /**
@@ -80,15 +87,38 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->belongsToMany(User::class, 'subscribers', 'user_id', 'customer_id');
     }
 
+    public function getRoleName(int $role): string
+    {
+        return self::ROLES[$role];
+    }
+
     public function getLink(string|null $link): string
     {
         $user = self::where('id', Auth::user()->id)->first();
         return !$link ? 'add link in bio...' : $user['link'];
     }
 
+    public function getLinkForFollower(string|null $link): string
+    {
+        $user = self::where('id', Auth::user()->id)->first();
+        return !$link ? '' : $user['link'];
+    }
+
     public static function getUserLink(string|null $link, int $id): string
     {
         $user = self::where('id', $id)->first();
         return !$link ? 'add link in bio...' : $user['link'];
+    }
+
+    public function getHobbyName(int $hobbyId): string
+    {
+        $user = self::find(Auth::user()->id);
+        return $hobbyId == 1 ? 'add your hobby...' : $user->hobby->name;
+    }
+
+    public function getHobbyNameForFollower(int $hobbyId): string
+    {
+        $user = self::find(Auth::user()->id);
+        return $hobbyId == 1 ? '' : $user->hobby->name;
     }
 }

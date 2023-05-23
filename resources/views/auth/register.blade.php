@@ -29,7 +29,7 @@
             </div>
             <div class="form__block">
                 <h4 class="form__label">Select the avatar</h4>
-                <input class="form__input" name="avatar" type="file">
+                <input class="form__input custom-file-input" name="avatar" type="file">
                 @error('avatar')
                 <p style="color: #f00f00">{{ $message }}</p>
                 @enderror

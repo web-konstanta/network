@@ -21,12 +21,12 @@
                     @if(is_null($customer))
                         <form action="{{ route('users.subscriber', $user->id) }}" method="post">
                             @csrf
-                            <button>Follow</button>
+                            <button class="user__buttons">Follow</button>
                         </form>
                     @else
                         <form action="{{ route('users.unfollow', $user->id) }}" method="post">
                             @csrf
-                            <button>Unfollow</button>
+                            <button class="user__buttons">Unfollow</button>
                         </form>
                     @endif
                 </li>
@@ -38,15 +38,15 @@
                 </li>
                 <li>
                     <a class="user__follow" href="{{ route('users.followers-list', $user->id) }}">{{ $user->users->count() }} following</a>
-                
+
                 </li>
             </ul>
             <ul class="user__info">
                 <li>{{ $user->region }}</li>
-                <li>{{ $user->hobby->name }}</li>
+                <li>{{ $user->getHobbyName($user->hobby_id) }}</li>
                 <li>
-                    <a href="{{ App\Models\User::getUserLink($user->link, $user->id) }}" class="user__link">
-                        {{ App\Models\User::getUserLink($user->link, $user->id) }}
+                    <a href="{{ $user->getUserLink($user->link, $user->id) }}" class="user__link">
+                        {{ $user->getUserLink($user->link, $user->id) }}
                     </a>
                 </li>
             </ul>

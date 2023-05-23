@@ -30,7 +30,7 @@
                 </select>
             </div>
             <div class="form__block">
-                <button class="form__button" type="submit">Add post</button>
+                <button class="form__button" type="submit">Save changes</button>
             </div>
         </div>
     </form>

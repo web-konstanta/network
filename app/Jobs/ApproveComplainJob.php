@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Mail\ApproveComplainMail;
 use App\Mail\ComplainMail;
 use App\Models\User;
 use Illuminate\Bus\Queueable;
@@ -11,23 +12,20 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class ComplainJob implements ShouldQueue
+class ApproveComplainJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-
-    public int $postId;
-    public int $userId;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(int $postId, int $userId)
-    {
-        $this->postId = $postId;
-        $this->userId = $userId;
-    }
+    public function __construct(
+        private int $postId,
+        private int $userId
+    )
+    {}
 
     /**
      * Execute the job.
@@ -36,9 +34,7 @@ class ComplainJob implements ShouldQueue
      */
     public function handle()
     {
-        $moderatorsEmails = User::where('role', User::MODERATOR_ROLE)->pluck('email');
-        foreach ($moderatorsEmails as $moderatorsEmail) {
-            Mail::to($moderatorsEmail)->send(new ComplainMail($this->postId, $this->userId));
-        }
+        $user = User::find($this->userId);
+        Mail::to($user->email)->send(new ApproveComplainMail($this->postId, $this->userId));
     }
 }
