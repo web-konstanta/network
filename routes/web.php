@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Admin\Post\IndexController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -51,6 +50,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admi
         Route::get('/{post}', 'ShowController')->name('admin.post.show');
         Route::post('/approve/{post}', 'ApproveController')->name('admin.post.approve');
         Route::post('/delete/{post}', 'DestroyController')->name('admin.post.destroy');
+    });
+    Route::group(['namespace' => 'User', 'prefix' => 'user', 'middleware' => 'admin_protection'], function () {
+        Route::get('/', 'IndexController')->name('admin.user.index');
+        Route::get('/{user}', 'ShowController')->name('admin.user.show');
+        Route::get('/edit/{user}', 'EditController')->name('admin.user.edit');
+        Route::patch('/update/{user}', 'UpdateController')->name('admin.user.update');
+        Route::delete('/delete/{user}', 'DestroyController')->name('admin.user.delete');
     });
 });
 

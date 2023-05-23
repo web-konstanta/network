@@ -21,6 +21,12 @@ class User extends Authenticatable implements MustVerifyEmail
     const ADMIN_ROLE = 1;
     const MODERATOR_ROLE = 2;
 
+    const ROLES = [
+        self::USER_ROLE      => 'user',
+        self::ADMIN_ROLE     => 'admin',
+        self::MODERATOR_ROLE => 'moderator'
+    ];
+
     /**
      * The attributes that are mass assignable.
      *
@@ -33,7 +39,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'avatar',
         'password',
         'hobby_id',
-        'link'
+        'link',
+        'role'
     ];
 
     /**
@@ -78,6 +85,11 @@ class User extends Authenticatable implements MustVerifyEmail
     public function users(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'subscribers', 'user_id', 'customer_id');
+    }
+
+    public function getRoleName(int $role): string
+    {
+        return self::ROLES[$role];
     }
 
     public function getLink(string|null $link): string
