@@ -19,7 +19,6 @@ $(document).ready(() => {
 				url: '/home/user/post/save/' + postId,
 				data: {}
 			})
-			alert('Post successfully saved')
 
 		})
 
@@ -36,7 +35,6 @@ $(document).ready(() => {
 				url: '/home/user/post/unsave/' + postId,
 				data: {}
 			})
-			alert('Post unsaved')
 
 		})
 

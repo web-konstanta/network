@@ -82,7 +82,7 @@ hr {
 }
 .posts {
     display: flex;
-    flex-wrap: wrap-reverse;
+    flex-wrap: wrap;
     max-width: 800px;
     margin: 0 auto;
 }
