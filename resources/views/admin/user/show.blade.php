@@ -7,6 +7,7 @@
         <div class="p-5 mb-4 bg-light rounded-3">
             <div class="container-fluid py-5">
                 <h1 class="display-5 fw-bold">Nickname: {{ $item->name }}</h1>
+                <img src="{{ url('storage/' . $item->avatar) }}">
                 <p class="col-md-8 fs-4 mt-3">Email: {{ $item->email }}</p>
                 <p class="col-md-8 fs-4 mt-3">Region: {{ $item->region }}</p>
                 <p class="col-md-8 fs-4 mt-3">Hobby: {{ $item->hobby->name }}</p>

@@ -33,6 +33,28 @@
                     <li>#{{ $tag->name }}</li>
                 @endforeach
             </ul>
+            <div>
+                @foreach ($post->comments as $comment)
+                    <div style="display: flex; justify-content: space-between">
+                        <div>
+                            <div class="main__section-block">
+                                <img src="{{ url('storage/' . $comment->user->avatar) }}" class="main__section-avatar">
+                                <p>{{ $comment->user->name }}</p>
+                            </div>
+                            <p style="margin-top: -5px">{{ $comment->text }}</p>
+                        </div>
+                        @if (\Illuminate\Support\Facades\Auth::user()->id === $comment->user_id)
+                            <form action="{{ route('users.comments.delete', $comment->id) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" style="border: none; background: none">
+                                    <img src="{{ asset('img/remove.png') }}" style="width: 24px; height: 24px; margin-top: 26px">
+                                </button>
+                            </form>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
         </div>
     </main>
 @endsection
