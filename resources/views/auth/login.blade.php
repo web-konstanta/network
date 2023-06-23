@@ -7,7 +7,7 @@
         @csrf
         <div class="form__section">
             @if(Session::has('success'))
-                <p style="color: #f00f00">{{ session('success') }}</p>
+                <p style="color: green; font-weight: 600; text-align: center">{{ session('success') }}</p>
             @endif
             <h1 class="form__logo">Social network</h1>
             <div class="form__block">

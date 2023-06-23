@@ -27,7 +27,7 @@
                 @foreach ($post->tags as $tag)
                     <li>#{{ $tag->name }}</li>
                 @endforeach
-            </ule=>
+            </ul>
         </div>
     </main>
 @endsection

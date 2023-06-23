@@ -26,7 +26,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Role</label><br>
-                <select name="role" class="form-select" aria-label="Default select example">
+                <select name="role" class="form-control" aria-label="Default select example">
                     @foreach(\App\Models\User::ROLES as $key => $role)
                         <option {{ $item->role === $key ? 'selected' : '' }} value="{{ $key }}">{{ $role }}</option>
                     @endforeach
